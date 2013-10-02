@@ -29,7 +29,13 @@
   <b>Twitter:</b>
   <%= @author.twitter %>
 </p>
-
+<hr />
+<h3> <%= @author.first_name%>'s posts</h3>
+<% @author.posts.each do |post| %>
+    <h2><%= link_to post.title.titleize, post %></h2>
+    <h4><%= time_tag(post.published_at ) %> </h4>
+    <p><%= post.body.html_safe %></p>
+<% end %>
 
 <%= link_to 'Edit', edit_author_path(@author) %> |
 <%= link_to 'Back', authors_path %>

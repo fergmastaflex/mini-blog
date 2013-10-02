@@ -1,4 +1,5 @@
 MiniBlog::Application.routes.draw do
+  resources :authors
   resources :posts
   root :to => 'home#index'
   get "home/index"

@@ -4,7 +4,7 @@
 <% @posts.each do |post| %>
     <h2><%= post.title.titleize %></h2>
     <h4><%= link_to(post.author.try(:username), author_path(post.author)) if post.author %> @ <%= time_tag(post.published_at ) %> </h4>
-    <p><%= post.body.html_safe %></p>
+    <p><%= simple_format(truncate(post.body, length: 140, separator: '. ')) %></p>
     <%= link_to 'Show', post %>
     <%= link_to 'Edit', edit_post_path(post) %>
     <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure you want to delete this blog post?' } %>

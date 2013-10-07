@@ -6,5 +6,5 @@ class Comment < ActiveRecord::Base
   			length: {maximum: 30}
   validates :messages,
   			length: {maximum: 500}
-
+  
 end

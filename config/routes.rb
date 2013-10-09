@@ -1,7 +1,10 @@
 MiniBlog::Application.routes.draw do
+  get "sessions/new"
+  get 'sign-up', to: 'author#new', as: :signup
+  get 'sign-in', to: 'sessions#new', as: :signin
+  delete 'sign-out', to: 'sessions#destroy', as: :signout
+  resources :sessions
   resources :comments
-
-
   resources :authors
   resources :posts
   root :to => 'home#index'
